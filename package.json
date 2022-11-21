@@ -1,0 +1,8 @@
+{
+  "name": "tulind-wrapper",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/wrule/tulind-wrapper.git",
+  "license": "MIT",
+  "private": false
+}
