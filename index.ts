@@ -1,6 +1,6 @@
 import tulind from 'tulind';
 
-console.log(tulind.indicators.abs.indicator([], [], (e, data) => {
-
-}));
-console.log(Object.keys(tulind.indicators.abs));
+tulind.indicators.sma.indicator([[1, 2, 3]], [2], (error, data) => {
+  if (error) throw error;
+  console.log(data);
+});
