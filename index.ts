@@ -2,12 +2,7 @@ import tulind from 'tulind';
 
 export
 function sma(real: number[], period: number) {
-  let sma: number[] = [];
-  tulind.indicators.sma.indicator([], [], (error, data) => {
-    if (error) throw error;
-    sma = data[0];
-  });
-  return sma;
+  return converter('sma', [real], [period])[0];
 }
 
 
@@ -28,8 +23,8 @@ function typescript_code(indic: indicator) {
 }
 
 async function main() {
-  console.log(tulind.indicators.macd);
-  console.log(typescript_code(tulind.indicators.macd));
+  console.log(tulind.indicators.sma);
+  console.log(sma([2, 3, 1, 3, 4], 2));
 }
 
 main();
