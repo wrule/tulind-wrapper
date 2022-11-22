@@ -10,6 +10,18 @@ function sma(real: number[], period: number) {
   return sma;
 }
 
+
+export
+function converter(name: string, inputs: number[][], options: number[]) {
+  let result: number[][] = [];
+  tulind.indicators[name].indicator(inputs, options, (error, data) => {
+    if (error) throw error;
+    result = data;
+  });
+  return result;
+}
+
+
 export
 function typescript_code(indic: indicator) {
   return `
