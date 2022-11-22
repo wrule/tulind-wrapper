@@ -1,6 +1,6 @@
 {
   "name": "tulind-wrapper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "scripts": {
     "build": "tsc && node generator.js && tsc",
