@@ -18,9 +18,8 @@ function converter(name: string, inputs: number[][], options: number[]) {
 
 export
 function norm(text: string) {
-  return text.replace(' ', '_');
+  return text.replace(/\s/g, '_').replace(/\%/g, '');
 }
-
 
 export
 function typescript_code(indic: indicator) {
