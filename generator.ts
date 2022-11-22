@@ -1,4 +1,5 @@
 import tulind from 'tulind';
+import fs from 'fs';
 
 export
 function sma(real: number[], period: number) {
@@ -35,13 +36,27 @@ function ${indic.name}(${indic.input_names.map((name) => `${norm(name)}: number[
   }]);
   return { ${indic.output_names.map((name, index) => `${norm(name)}: result[${index}]`).join(', ')} };
 }
-  `.trim();
+  `.trim() + '\n\n';
 }
 
 async function main() {
-  console.log(typescript_code(tulind.indicators.stoch));
-  // console.log(sma([2, 3, 1, 3, 4], 2));
-  // console.log(tulind.indicators.stoch);
+  fs.writeFileSync('index.ts', '');
+  fs.writeFileSync('index.ts', `
+import tulind from 'tulind';
+
+export
+function converter(name: string, inputs: number[][], options: number[]) {
+  let result: number[][] = [];
+  tulind.indicators[name].indicator(inputs, options, (error, data) => {
+    if (error) throw error;
+    result = data;
+  });
+  return result;
+}
+  `.trim() + '\n\n');
+  Object.values(tulind.indicators).forEach((indic) => {
+    fs.appendFileSync('index.ts', typescript_code(indic));
+  });
 }
 
 main();
