@@ -34,7 +34,11 @@ function ${indic.name}(${indic.input_names.map((name) => `${norm(name)}: number[
   const result = _converter('${indic.name}', [${indic.input_names.join(', ')}], [${
     indic.option_names.length < 1 ? '' : indic.option_names.map((name) => `options.${norm(name)}`).join(', ')
   }]);
-  return { ${indic.output_names.map((name, index) => `${norm(name)}: result[${index}]`).join(', ')} };
+  return ${
+    indic.output_names.length < 2 ?
+      'result[0]' :
+      `{ ${indic.output_names.map((name, index) => `${norm(name)}: result[${index}]`).join(', ')} }`
+  };
 }
   `.trim() + '\n\n';
 }
