@@ -19,12 +19,19 @@ function converter(name: string, inputs: number[][], options: number[]) {
 
 export
 function typescript_code(indic: indicator) {
-  return '';
+  return `
+export
+function ${indic.name}() {
+  const result = converter('${indic.name}', [], []);
+  return { ${indic.output_names.map((name, index) => `${name}: result[${index}]`).join(', ')} };
+}
+  `.trim();
 }
 
 async function main() {
-  console.log(tulind.indicators.sma);
+  console.log(typescript_code(tulind.indicators.macd));
   console.log(sma([2, 3, 1, 3, 4], 2));
+  console.log(tulind.indicators.macd);
 }
 
 main();
