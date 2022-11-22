@@ -24,29 +24,7 @@ function converter(name: string, inputs: number[][], options: number[]) {
 
 export
 function typescript_code(indic: indicator) {
-  return `
-export
-function ${
-  indic.name
-}(${
-  indic.input_names.map((name) => `${name}: number[]`).join(', ')
-}, ${
-  (() => {
-    if (indic.option_names.length < 1) return '';
-    if (indic.option_names.length < 2) return `${indic.option_names[0]}: number`;
-    return `options: { ${indic.option_names.map((name) => `${name}: number[];`).join(' ')} }`;
-  })()
-}) {
-  let sma: number[] = [];
-  tulind.indicators.${
-  indic.name
-}.indicator([], [], (error, data) => {
-    if (error) throw error;
-    sma = data[0];
-  });
-  return sma;
-}
-`.trim();
+  return '';
 }
 
 async function main() {
