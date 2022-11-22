@@ -105,5 +105,5 @@ dist
 
 *.js
 *.js.map
-*.d.ts
+# *.d.ts
 *.d.ts.map
