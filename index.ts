@@ -1,12 +1,22 @@
 import tulind from 'tulind';
 
 export
-function _converter(name: string, inputs: number[][], options: number[]) {
+function _align(outputs: number[][], length: number) {
+  outputs.forEach((output) => {
+    const diff = length - output.length;
+    if (diff > 0) output.unshift(...Array(diff).fill(NaN));
+    if (diff < 0) output.splice(0, -diff);
+  });
+}
+
+export
+function _converter(name: string, inputs: number[][], options: number[], align = false) {
   let result: number[][] = [];
   tulind.indicators[name].indicator(inputs, options, (error, data) => {
     if (error) throw error;
     result = data;
   });
+  align && _align(result, inputs[0].length);
   return result;
 }
 
