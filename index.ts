@@ -359,8 +359,8 @@ function msw(real: number[], options: { period: number }) {
 }
 
 export
-function mul(real: number[], real: number[]) {
-  const result = _converter('mul', [real, real], []);
+function mul(real1: number[], real2: number[]) {
+  const result = _converter('mul', [real1, real2], []);
   return result[0];
 }
 
@@ -479,8 +479,8 @@ function stochrsi(real: number[], options: { period: number }) {
 }
 
 export
-function sub(real: number[], real: number[]) {
-  const result = _converter('sub', [real, real], []);
+function sub(real1: number[], real2: number[]) {
+  const result = _converter('sub', [real1, real2], []);
   return result[0];
 }
 
