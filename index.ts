@@ -16,20 +16,25 @@ function converter(name: string, inputs: number[][], options: number[]) {
   return result;
 }
 
+export
+function norm(text: string) {
+  return text.replace(' ', '_');
+}
+
 
 export
 function typescript_code(indic: indicator) {
   return `
 export
-function ${indic.name}(${indic.input_names.map((name) => `${name}: number[]`).join(', ')}${
+function ${indic.name}(${indic.input_names.map((name) => `${norm(name)}: number[]`).join(', ')}${
   indic.option_names.length < 1 ?
     '' :
-    `, options: { ${indic.option_names.map((name) => `${name}: number`).join('; ')} }`
+    `, options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`
 }) {
   const result = converter('${indic.name}', [${indic.input_names.join(', ')}], [${
-    indic.option_names.length < 1 ? '' : indic.option_names.map((name) => `options.${name}`).join(', ')
+    indic.option_names.length < 1 ? '' : indic.option_names.map((name) => `options.${norm(name)}`).join(', ')
   }]);
-  return { ${indic.output_names.map((name, index) => `${name}: result[${index}]`).join(', ')} };
+  return { ${indic.output_names.map((name, index) => `${norm(name)}: result[${index}]`).join(', ')} };
 }
   `.trim();
 }
@@ -37,7 +42,7 @@ function ${indic.name}(${indic.input_names.map((name) => `${name}: number[]`).jo
 async function main() {
   console.log(typescript_code(tulind.indicators.stoch));
   // console.log(sma([2, 3, 1, 3, 4], 2));
-  console.log(tulind.indicators.stoch);
+  // console.log(tulind.indicators.stoch);
 }
 
 main();
