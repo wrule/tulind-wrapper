@@ -1,7 +1,7 @@
 import tulind from 'tulind';
 import fs from 'fs';
 
-const patches: { [key: string]: (indic: indicator) => void } = {
+const patches: { [key: string]: (indic: Indicator) => void } = {
   'add': (indic) => indic.input_names = ['real1', 'real2'],
   'crossany': (indic) => indic.input_names = ['real1', 'real2'],
   'crossover': (indic) => indic.input_names = ['real1', 'real2'],
@@ -17,7 +17,7 @@ function norm(text: string) {
 }
 
 export
-function typescript_code(indic: indicator) {
+function typescript_code(indic: Indicator) {
   return `
 export
 function ${indic.name_ || indic.name}(${indic.input_names.map((name) => `${norm(name)}: number[]`).join(', ')}${

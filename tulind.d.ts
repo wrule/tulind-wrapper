@@ -1,5 +1,4 @@
-
-interface indicator {
+interface Indicator {
   name: string;
   full_name: string;
   type: string;
@@ -17,6 +16,6 @@ interface indicator {
 declare module 'tulind' {
   export const version: string;
   export const indicators: {
-    [key: string]: indicator;
+    [key: string]: Indicator;
   };
 };
