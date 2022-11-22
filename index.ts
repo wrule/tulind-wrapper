@@ -21,8 +21,12 @@ export
 function typescript_code(indic: indicator) {
   return `
 export
-function ${indic.name}() {
-  const result = converter('${indic.name}', [], []);
+function ${
+  indic.name
+}(${
+  indic.input_names.map((name) => `${name}: number[]`).join(', ')
+}) {
+  const result = converter('${indic.name}', [${indic.input_names.join(', ')}], []);
   return { ${indic.output_names.map((name, index) => `${name}: result[${index}]`).join(', ')} };
 }
   `.trim();
