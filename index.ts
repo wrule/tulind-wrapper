@@ -10,18 +10,18 @@ function _align(outputs: number[][], length: number) {
 }
 
 export
-function _converter(name: string, inputs: number[][], options: number[], align = false) {
+function _converter(name: string, inputs: number[][], options: number[], align: boolean | number = false) {
   let result: number[][] = [];
   tulind.indicators[name].indicator(inputs, options, (error: Error, data: number[][]) => {
     if (error) throw error;
     result = data;
   });
-  align && _align(result, inputs[0].length);
+  align && _align(result, align === true ? inputs[0].length : align);
   return result;
 }
 
 export
-function abs(real: number[], align = false) {
+function abs(real: number[], align: boolean | number = false) {
   const result = _converter('abs', [real], [], align);
   return result[0];
 }
@@ -32,7 +32,7 @@ function abs_start() {
 }
 
 export
-function acos(real: number[], align = false) {
+function acos(real: number[], align: boolean | number = false) {
   const result = _converter('acos', [real], [], align);
   return result[0];
 }
@@ -43,7 +43,7 @@ function acos_start() {
 }
 
 export
-function ad(high: number[], low: number[], close: number[], volume: number[], align = false) {
+function ad(high: number[], low: number[], close: number[], volume: number[], align: boolean | number = false) {
   const result = _converter('ad', [high, low, close, volume], [], align);
   return result[0];
 }
@@ -54,7 +54,7 @@ function ad_start() {
 }
 
 export
-function add(real1: number[], real2: number[], align = false) {
+function add(real1: number[], real2: number[], align: boolean | number = false) {
   const result = _converter('add', [real1, real2], [], align);
   return result[0];
 }
@@ -65,7 +65,7 @@ function add_start() {
 }
 
 export
-function adosc(high: number[], low: number[], close: number[], volume: number[], options: { short_period: number; long_period: number }, align = false) {
+function adosc(high: number[], low: number[], close: number[], volume: number[], options: { short_period: number; long_period: number }, align: boolean | number = false) {
   const result = _converter('adosc', [high, low, close, volume], [options.short_period, options.long_period], align);
   return result[0];
 }
@@ -76,7 +76,7 @@ function adosc_start(options: { short_period: number; long_period: number }) {
 }
 
 export
-function adx(high: number[], low: number[], close: number[], options: { period: number }, align = false) {
+function adx(high: number[], low: number[], close: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('adx', [high, low, close], [options.period], align);
   return result[0];
 }
@@ -87,7 +87,7 @@ function adx_start(options: { period: number }) {
 }
 
 export
-function adxr(high: number[], low: number[], close: number[], options: { period: number }, align = false) {
+function adxr(high: number[], low: number[], close: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('adxr', [high, low, close], [options.period], align);
   return result[0];
 }
@@ -98,7 +98,7 @@ function adxr_start(options: { period: number }) {
 }
 
 export
-function ao(high: number[], low: number[], align = false) {
+function ao(high: number[], low: number[], align: boolean | number = false) {
   const result = _converter('ao', [high, low], [], align);
   return result[0];
 }
@@ -109,7 +109,7 @@ function ao_start() {
 }
 
 export
-function apo(real: number[], options: { short_period: number; long_period: number }, align = false) {
+function apo(real: number[], options: { short_period: number; long_period: number }, align: boolean | number = false) {
   const result = _converter('apo', [real], [options.short_period, options.long_period], align);
   return result[0];
 }
@@ -120,7 +120,7 @@ function apo_start(options: { short_period: number; long_period: number }) {
 }
 
 export
-function aroon(high: number[], low: number[], options: { period: number }, align = false) {
+function aroon(high: number[], low: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('aroon', [high, low], [options.period], align);
   return { aroon_down: result[0], aroon_up: result[1] };
 }
@@ -131,7 +131,7 @@ function aroon_start(options: { period: number }) {
 }
 
 export
-function aroonosc(high: number[], low: number[], options: { period: number }, align = false) {
+function aroonosc(high: number[], low: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('aroonosc', [high, low], [options.period], align);
   return result[0];
 }
@@ -142,7 +142,7 @@ function aroonosc_start(options: { period: number }) {
 }
 
 export
-function asin(real: number[], align = false) {
+function asin(real: number[], align: boolean | number = false) {
   const result = _converter('asin', [real], [], align);
   return result[0];
 }
@@ -153,7 +153,7 @@ function asin_start() {
 }
 
 export
-function atan(real: number[], align = false) {
+function atan(real: number[], align: boolean | number = false) {
   const result = _converter('atan', [real], [], align);
   return result[0];
 }
@@ -164,7 +164,7 @@ function atan_start() {
 }
 
 export
-function atr(high: number[], low: number[], close: number[], options: { period: number }, align = false) {
+function atr(high: number[], low: number[], close: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('atr', [high, low, close], [options.period], align);
   return result[0];
 }
@@ -175,7 +175,7 @@ function atr_start(options: { period: number }) {
 }
 
 export
-function avgprice(open: number[], high: number[], low: number[], close: number[], align = false) {
+function avgprice(open: number[], high: number[], low: number[], close: number[], align: boolean | number = false) {
   const result = _converter('avgprice', [open, high, low, close], [], align);
   return result[0];
 }
@@ -186,7 +186,7 @@ function avgprice_start() {
 }
 
 export
-function bbands(real: number[], options: { period: number; stddev: number }, align = false) {
+function bbands(real: number[], options: { period: number; stddev: number }, align: boolean | number = false) {
   const result = _converter('bbands', [real], [options.period, options.stddev], align);
   return { bbands_lower: result[0], bbands_middle: result[1], bbands_upper: result[2] };
 }
@@ -197,7 +197,7 @@ function bbands_start(options: { period: number; stddev: number }) {
 }
 
 export
-function bop(open: number[], high: number[], low: number[], close: number[], align = false) {
+function bop(open: number[], high: number[], low: number[], close: number[], align: boolean | number = false) {
   const result = _converter('bop', [open, high, low, close], [], align);
   return result[0];
 }
@@ -208,7 +208,7 @@ function bop_start() {
 }
 
 export
-function cci(high: number[], low: number[], close: number[], options: { period: number }, align = false) {
+function cci(high: number[], low: number[], close: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('cci', [high, low, close], [options.period], align);
   return result[0];
 }
@@ -219,7 +219,7 @@ function cci_start(options: { period: number }) {
 }
 
 export
-function ceil(real: number[], align = false) {
+function ceil(real: number[], align: boolean | number = false) {
   const result = _converter('ceil', [real], [], align);
   return result[0];
 }
@@ -230,7 +230,7 @@ function ceil_start() {
 }
 
 export
-function cmo(real: number[], options: { period: number }, align = false) {
+function cmo(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('cmo', [real], [options.period], align);
   return result[0];
 }
@@ -241,7 +241,7 @@ function cmo_start(options: { period: number }) {
 }
 
 export
-function cos(real: number[], align = false) {
+function cos(real: number[], align: boolean | number = false) {
   const result = _converter('cos', [real], [], align);
   return result[0];
 }
@@ -252,7 +252,7 @@ function cos_start() {
 }
 
 export
-function cosh(real: number[], align = false) {
+function cosh(real: number[], align: boolean | number = false) {
   const result = _converter('cosh', [real], [], align);
   return result[0];
 }
@@ -263,7 +263,7 @@ function cosh_start() {
 }
 
 export
-function crossany(real1: number[], real2: number[], align = false) {
+function crossany(real1: number[], real2: number[], align: boolean | number = false) {
   const result = _converter('crossany', [real1, real2], [], align);
   return result[0];
 }
@@ -274,7 +274,7 @@ function crossany_start() {
 }
 
 export
-function crossover(real1: number[], real2: number[], align = false) {
+function crossover(real1: number[], real2: number[], align: boolean | number = false) {
   const result = _converter('crossover', [real1, real2], [], align);
   return result[0];
 }
@@ -285,7 +285,7 @@ function crossover_start() {
 }
 
 export
-function cvi(high: number[], low: number[], options: { period: number }, align = false) {
+function cvi(high: number[], low: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('cvi', [high, low], [options.period], align);
   return result[0];
 }
@@ -296,7 +296,7 @@ function cvi_start(options: { period: number }) {
 }
 
 export
-function decay(real: number[], options: { period: number }, align = false) {
+function decay(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('decay', [real], [options.period], align);
   return result[0];
 }
@@ -307,7 +307,7 @@ function decay_start(options: { period: number }) {
 }
 
 export
-function dema(real: number[], options: { period: number }, align = false) {
+function dema(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('dema', [real], [options.period], align);
   return result[0];
 }
@@ -318,7 +318,7 @@ function dema_start(options: { period: number }) {
 }
 
 export
-function di(high: number[], low: number[], close: number[], options: { period: number }, align = false) {
+function di(high: number[], low: number[], close: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('di', [high, low, close], [options.period], align);
   return { plus_di: result[0], minus_di: result[1] };
 }
@@ -329,7 +329,7 @@ function di_start(options: { period: number }) {
 }
 
 export
-function div(real1: number[], real2: number[], align = false) {
+function div(real1: number[], real2: number[], align: boolean | number = false) {
   const result = _converter('div', [real1, real2], [], align);
   return result[0];
 }
@@ -340,7 +340,7 @@ function div_start() {
 }
 
 export
-function dm(high: number[], low: number[], options: { period: number }, align = false) {
+function dm(high: number[], low: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('dm', [high, low], [options.period], align);
   return { plus_dm: result[0], minus_dm: result[1] };
 }
@@ -351,7 +351,7 @@ function dm_start(options: { period: number }) {
 }
 
 export
-function dpo(real: number[], options: { period: number }, align = false) {
+function dpo(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('dpo', [real], [options.period], align);
   return result[0];
 }
@@ -362,7 +362,7 @@ function dpo_start(options: { period: number }) {
 }
 
 export
-function dx(high: number[], low: number[], close: number[], options: { period: number }, align = false) {
+function dx(high: number[], low: number[], close: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('dx', [high, low, close], [options.period], align);
   return result[0];
 }
@@ -373,7 +373,7 @@ function dx_start(options: { period: number }) {
 }
 
 export
-function edecay(real: number[], options: { period: number }, align = false) {
+function edecay(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('edecay', [real], [options.period], align);
   return result[0];
 }
@@ -384,7 +384,7 @@ function edecay_start(options: { period: number }) {
 }
 
 export
-function ema(real: number[], options: { period: number }, align = false) {
+function ema(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('ema', [real], [options.period], align);
   return result[0];
 }
@@ -395,7 +395,7 @@ function ema_start(options: { period: number }) {
 }
 
 export
-function emv(high: number[], low: number[], volume: number[], align = false) {
+function emv(high: number[], low: number[], volume: number[], align: boolean | number = false) {
   const result = _converter('emv', [high, low, volume], [], align);
   return result[0];
 }
@@ -406,7 +406,7 @@ function emv_start() {
 }
 
 export
-function exp(real: number[], align = false) {
+function exp(real: number[], align: boolean | number = false) {
   const result = _converter('exp', [real], [], align);
   return result[0];
 }
@@ -417,7 +417,7 @@ function exp_start() {
 }
 
 export
-function fisher(high: number[], low: number[], options: { period: number }, align = false) {
+function fisher(high: number[], low: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('fisher', [high, low], [options.period], align);
   return { fisher: result[0], fisher_signal: result[1] };
 }
@@ -428,7 +428,7 @@ function fisher_start(options: { period: number }) {
 }
 
 export
-function floor(real: number[], align = false) {
+function floor(real: number[], align: boolean | number = false) {
   const result = _converter('floor', [real], [], align);
   return result[0];
 }
@@ -439,7 +439,7 @@ function floor_start() {
 }
 
 export
-function fosc(real: number[], options: { period: number }, align = false) {
+function fosc(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('fosc', [real], [options.period], align);
   return result[0];
 }
@@ -450,7 +450,7 @@ function fosc_start(options: { period: number }) {
 }
 
 export
-function hma(real: number[], options: { period: number }, align = false) {
+function hma(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('hma', [real], [options.period], align);
   return result[0];
 }
@@ -461,7 +461,7 @@ function hma_start(options: { period: number }) {
 }
 
 export
-function kama(real: number[], options: { period: number }, align = false) {
+function kama(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('kama', [real], [options.period], align);
   return result[0];
 }
@@ -472,7 +472,7 @@ function kama_start(options: { period: number }) {
 }
 
 export
-function kvo(high: number[], low: number[], close: number[], volume: number[], options: { short_period: number; long_period: number }, align = false) {
+function kvo(high: number[], low: number[], close: number[], volume: number[], options: { short_period: number; long_period: number }, align: boolean | number = false) {
   const result = _converter('kvo', [high, low, close, volume], [options.short_period, options.long_period], align);
   return result[0];
 }
@@ -483,7 +483,7 @@ function kvo_start(options: { short_period: number; long_period: number }) {
 }
 
 export
-function lag(real: number[], options: { period: number }, align = false) {
+function lag(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('lag', [real], [options.period], align);
   return result[0];
 }
@@ -494,7 +494,7 @@ function lag_start(options: { period: number }) {
 }
 
 export
-function linreg(real: number[], options: { period: number }, align = false) {
+function linreg(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('linreg', [real], [options.period], align);
   return result[0];
 }
@@ -505,7 +505,7 @@ function linreg_start(options: { period: number }) {
 }
 
 export
-function linregintercept(real: number[], options: { period: number }, align = false) {
+function linregintercept(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('linregintercept', [real], [options.period], align);
   return result[0];
 }
@@ -516,7 +516,7 @@ function linregintercept_start(options: { period: number }) {
 }
 
 export
-function linregslope(real: number[], options: { period: number }, align = false) {
+function linregslope(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('linregslope', [real], [options.period], align);
   return result[0];
 }
@@ -527,7 +527,7 @@ function linregslope_start(options: { period: number }) {
 }
 
 export
-function ln(real: number[], align = false) {
+function ln(real: number[], align: boolean | number = false) {
   const result = _converter('ln', [real], [], align);
   return result[0];
 }
@@ -538,7 +538,7 @@ function ln_start() {
 }
 
 export
-function log10(real: number[], align = false) {
+function log10(real: number[], align: boolean | number = false) {
   const result = _converter('log10', [real], [], align);
   return result[0];
 }
@@ -549,7 +549,7 @@ function log10_start() {
 }
 
 export
-function macd(real: number[], options: { short_period: number; long_period: number; signal_period: number }, align = false) {
+function macd(real: number[], options: { short_period: number; long_period: number; signal_period: number }, align: boolean | number = false) {
   const result = _converter('macd', [real], [options.short_period, options.long_period, options.signal_period], align);
   return { macd: result[0], macd_signal: result[1], macd_histogram: result[2] };
 }
@@ -560,7 +560,7 @@ function macd_start(options: { short_period: number; long_period: number; signal
 }
 
 export
-function marketfi(high: number[], low: number[], volume: number[], align = false) {
+function marketfi(high: number[], low: number[], volume: number[], align: boolean | number = false) {
   const result = _converter('marketfi', [high, low, volume], [], align);
   return result[0];
 }
@@ -571,7 +571,7 @@ function marketfi_start() {
 }
 
 export
-function mass(high: number[], low: number[], options: { period: number }, align = false) {
+function mass(high: number[], low: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('mass', [high, low], [options.period], align);
   return result[0];
 }
@@ -582,7 +582,7 @@ function mass_start(options: { period: number }) {
 }
 
 export
-function max(real: number[], options: { period: number }, align = false) {
+function max(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('max', [real], [options.period], align);
   return result[0];
 }
@@ -593,7 +593,7 @@ function max_start(options: { period: number }) {
 }
 
 export
-function md(real: number[], options: { period: number }, align = false) {
+function md(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('md', [real], [options.period], align);
   return result[0];
 }
@@ -604,7 +604,7 @@ function md_start(options: { period: number }) {
 }
 
 export
-function medprice(high: number[], low: number[], align = false) {
+function medprice(high: number[], low: number[], align: boolean | number = false) {
   const result = _converter('medprice', [high, low], [], align);
   return result[0];
 }
@@ -615,7 +615,7 @@ function medprice_start() {
 }
 
 export
-function mfi(high: number[], low: number[], close: number[], volume: number[], options: { period: number }, align = false) {
+function mfi(high: number[], low: number[], close: number[], volume: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('mfi', [high, low, close, volume], [options.period], align);
   return result[0];
 }
@@ -626,7 +626,7 @@ function mfi_start(options: { period: number }) {
 }
 
 export
-function min(real: number[], options: { period: number }, align = false) {
+function min(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('min', [real], [options.period], align);
   return result[0];
 }
@@ -637,7 +637,7 @@ function min_start(options: { period: number }) {
 }
 
 export
-function mom(real: number[], options: { period: number }, align = false) {
+function mom(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('mom', [real], [options.period], align);
   return result[0];
 }
@@ -648,7 +648,7 @@ function mom_start(options: { period: number }) {
 }
 
 export
-function msw(real: number[], options: { period: number }, align = false) {
+function msw(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('msw', [real], [options.period], align);
   return { msw_sine: result[0], msw_lead: result[1] };
 }
@@ -659,7 +659,7 @@ function msw_start(options: { period: number }) {
 }
 
 export
-function mul(real1: number[], real2: number[], align = false) {
+function mul(real1: number[], real2: number[], align: boolean | number = false) {
   const result = _converter('mul', [real1, real2], [], align);
   return result[0];
 }
@@ -670,7 +670,7 @@ function mul_start() {
 }
 
 export
-function natr(high: number[], low: number[], close: number[], options: { period: number }, align = false) {
+function natr(high: number[], low: number[], close: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('natr', [high, low, close], [options.period], align);
   return result[0];
 }
@@ -681,7 +681,7 @@ function natr_start(options: { period: number }) {
 }
 
 export
-function nvi(close: number[], volume: number[], align = false) {
+function nvi(close: number[], volume: number[], align: boolean | number = false) {
   const result = _converter('nvi', [close, volume], [], align);
   return result[0];
 }
@@ -692,7 +692,7 @@ function nvi_start() {
 }
 
 export
-function obv(close: number[], volume: number[], align = false) {
+function obv(close: number[], volume: number[], align: boolean | number = false) {
   const result = _converter('obv', [close, volume], [], align);
   return result[0];
 }
@@ -703,7 +703,7 @@ function obv_start() {
 }
 
 export
-function ppo(real: number[], options: { short_period: number; long_period: number }, align = false) {
+function ppo(real: number[], options: { short_period: number; long_period: number }, align: boolean | number = false) {
   const result = _converter('ppo', [real], [options.short_period, options.long_period], align);
   return result[0];
 }
@@ -714,7 +714,7 @@ function ppo_start(options: { short_period: number; long_period: number }) {
 }
 
 export
-function psar(high: number[], low: number[], options: { acceleration_factor_step: number; acceleration_factor_maximum: number }, align = false) {
+function psar(high: number[], low: number[], options: { acceleration_factor_step: number; acceleration_factor_maximum: number }, align: boolean | number = false) {
   const result = _converter('psar', [high, low], [options.acceleration_factor_step, options.acceleration_factor_maximum], align);
   return result[0];
 }
@@ -725,7 +725,7 @@ function psar_start(options: { acceleration_factor_step: number; acceleration_fa
 }
 
 export
-function pvi(close: number[], volume: number[], align = false) {
+function pvi(close: number[], volume: number[], align: boolean | number = false) {
   const result = _converter('pvi', [close, volume], [], align);
   return result[0];
 }
@@ -736,7 +736,7 @@ function pvi_start() {
 }
 
 export
-function qstick(open: number[], close: number[], options: { period: number }, align = false) {
+function qstick(open: number[], close: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('qstick', [open, close], [options.period], align);
   return result[0];
 }
@@ -747,7 +747,7 @@ function qstick_start(options: { period: number }) {
 }
 
 export
-function roc(real: number[], options: { period: number }, align = false) {
+function roc(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('roc', [real], [options.period], align);
   return result[0];
 }
@@ -758,7 +758,7 @@ function roc_start(options: { period: number }) {
 }
 
 export
-function rocr(real: number[], options: { period: number }, align = false) {
+function rocr(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('rocr', [real], [options.period], align);
   return result[0];
 }
@@ -769,7 +769,7 @@ function rocr_start(options: { period: number }) {
 }
 
 export
-function round(real: number[], align = false) {
+function round(real: number[], align: boolean | number = false) {
   const result = _converter('round', [real], [], align);
   return result[0];
 }
@@ -780,7 +780,7 @@ function round_start() {
 }
 
 export
-function rsi(real: number[], options: { period: number }, align = false) {
+function rsi(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('rsi', [real], [options.period], align);
   return result[0];
 }
@@ -791,7 +791,7 @@ function rsi_start(options: { period: number }) {
 }
 
 export
-function sin(real: number[], align = false) {
+function sin(real: number[], align: boolean | number = false) {
   const result = _converter('sin', [real], [], align);
   return result[0];
 }
@@ -802,7 +802,7 @@ function sin_start() {
 }
 
 export
-function sinh(real: number[], align = false) {
+function sinh(real: number[], align: boolean | number = false) {
   const result = _converter('sinh', [real], [], align);
   return result[0];
 }
@@ -813,7 +813,7 @@ function sinh_start() {
 }
 
 export
-function sma(real: number[], options: { period: number }, align = false) {
+function sma(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('sma', [real], [options.period], align);
   return result[0];
 }
@@ -824,7 +824,7 @@ function sma_start(options: { period: number }) {
 }
 
 export
-function sqrt(real: number[], align = false) {
+function sqrt(real: number[], align: boolean | number = false) {
   const result = _converter('sqrt', [real], [], align);
   return result[0];
 }
@@ -835,7 +835,7 @@ function sqrt_start() {
 }
 
 export
-function stddev(real: number[], options: { period: number }, align = false) {
+function stddev(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('stddev', [real], [options.period], align);
   return result[0];
 }
@@ -846,7 +846,7 @@ function stddev_start(options: { period: number }) {
 }
 
 export
-function stderr(real: number[], options: { period: number }, align = false) {
+function stderr(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('stderr', [real], [options.period], align);
   return result[0];
 }
@@ -857,7 +857,7 @@ function stderr_start(options: { period: number }) {
 }
 
 export
-function stoch(high: number[], low: number[], close: number[], options: { k_period: number; k_slowing_period: number; d_period: number }, align = false) {
+function stoch(high: number[], low: number[], close: number[], options: { k_period: number; k_slowing_period: number; d_period: number }, align: boolean | number = false) {
   const result = _converter('stoch', [high, low, close], [options.k_period, options.k_slowing_period, options.d_period], align);
   return { stoch_k: result[0], stoch_d: result[1] };
 }
@@ -868,7 +868,7 @@ function stoch_start(options: { k_period: number; k_slowing_period: number; d_pe
 }
 
 export
-function stochrsi(real: number[], options: { period: number }, align = false) {
+function stochrsi(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('stochrsi', [real], [options.period], align);
   return result[0];
 }
@@ -879,7 +879,7 @@ function stochrsi_start(options: { period: number }) {
 }
 
 export
-function sub(real1: number[], real2: number[], align = false) {
+function sub(real1: number[], real2: number[], align: boolean | number = false) {
   const result = _converter('sub', [real1, real2], [], align);
   return result[0];
 }
@@ -890,7 +890,7 @@ function sub_start() {
 }
 
 export
-function sum(real: number[], options: { period: number }, align = false) {
+function sum(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('sum', [real], [options.period], align);
   return result[0];
 }
@@ -901,7 +901,7 @@ function sum_start(options: { period: number }) {
 }
 
 export
-function tan(real: number[], align = false) {
+function tan(real: number[], align: boolean | number = false) {
   const result = _converter('tan', [real], [], align);
   return result[0];
 }
@@ -912,7 +912,7 @@ function tan_start() {
 }
 
 export
-function tanh(real: number[], align = false) {
+function tanh(real: number[], align: boolean | number = false) {
   const result = _converter('tanh', [real], [], align);
   return result[0];
 }
@@ -923,7 +923,7 @@ function tanh_start() {
 }
 
 export
-function tema(real: number[], options: { period: number }, align = false) {
+function tema(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('tema', [real], [options.period], align);
   return result[0];
 }
@@ -934,7 +934,7 @@ function tema_start(options: { period: number }) {
 }
 
 export
-function todeg(real: number[], align = false) {
+function todeg(real: number[], align: boolean | number = false) {
   const result = _converter('todeg', [real], [], align);
   return result[0];
 }
@@ -945,7 +945,7 @@ function todeg_start() {
 }
 
 export
-function torad(real: number[], align = false) {
+function torad(real: number[], align: boolean | number = false) {
   const result = _converter('torad', [real], [], align);
   return result[0];
 }
@@ -956,7 +956,7 @@ function torad_start() {
 }
 
 export
-function tr(high: number[], low: number[], close: number[], align = false) {
+function tr(high: number[], low: number[], close: number[], align: boolean | number = false) {
   const result = _converter('tr', [high, low, close], [], align);
   return result[0];
 }
@@ -967,7 +967,7 @@ function tr_start() {
 }
 
 export
-function trima(real: number[], options: { period: number }, align = false) {
+function trima(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('trima', [real], [options.period], align);
   return result[0];
 }
@@ -978,7 +978,7 @@ function trima_start(options: { period: number }) {
 }
 
 export
-function trix(real: number[], options: { period: number }, align = false) {
+function trix(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('trix', [real], [options.period], align);
   return result[0];
 }
@@ -989,7 +989,7 @@ function trix_start(options: { period: number }) {
 }
 
 export
-function trunc(real: number[], align = false) {
+function trunc(real: number[], align: boolean | number = false) {
   const result = _converter('trunc', [real], [], align);
   return result[0];
 }
@@ -1000,7 +1000,7 @@ function trunc_start() {
 }
 
 export
-function tsf(real: number[], options: { period: number }, align = false) {
+function tsf(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('tsf', [real], [options.period], align);
   return result[0];
 }
@@ -1011,7 +1011,7 @@ function tsf_start(options: { period: number }) {
 }
 
 export
-function typprice(high: number[], low: number[], close: number[], align = false) {
+function typprice(high: number[], low: number[], close: number[], align: boolean | number = false) {
   const result = _converter('typprice', [high, low, close], [], align);
   return result[0];
 }
@@ -1022,7 +1022,7 @@ function typprice_start() {
 }
 
 export
-function ultosc(high: number[], low: number[], close: number[], options: { short_period: number; medium_period: number; long_period: number }, align = false) {
+function ultosc(high: number[], low: number[], close: number[], options: { short_period: number; medium_period: number; long_period: number }, align: boolean | number = false) {
   const result = _converter('ultosc', [high, low, close], [options.short_period, options.medium_period, options.long_period], align);
   return result[0];
 }
@@ -1033,7 +1033,7 @@ function ultosc_start(options: { short_period: number; medium_period: number; lo
 }
 
 export
-function var_(real: number[], options: { period: number }, align = false) {
+function var_(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('var', [real], [options.period], align);
   return result[0];
 }
@@ -1044,7 +1044,7 @@ function var__start(options: { period: number }) {
 }
 
 export
-function vhf(real: number[], options: { period: number }, align = false) {
+function vhf(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('vhf', [real], [options.period], align);
   return result[0];
 }
@@ -1055,7 +1055,7 @@ function vhf_start(options: { period: number }) {
 }
 
 export
-function vidya(real: number[], options: { short_period: number; long_period: number; alpha: number }, align = false) {
+function vidya(real: number[], options: { short_period: number; long_period: number; alpha: number }, align: boolean | number = false) {
   const result = _converter('vidya', [real], [options.short_period, options.long_period, options.alpha], align);
   return result[0];
 }
@@ -1066,7 +1066,7 @@ function vidya_start(options: { short_period: number; long_period: number; alpha
 }
 
 export
-function volatility(real: number[], options: { period: number }, align = false) {
+function volatility(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('volatility', [real], [options.period], align);
   return result[0];
 }
@@ -1077,7 +1077,7 @@ function volatility_start(options: { period: number }) {
 }
 
 export
-function vosc(volume: number[], options: { short_period: number; long_period: number }, align = false) {
+function vosc(volume: number[], options: { short_period: number; long_period: number }, align: boolean | number = false) {
   const result = _converter('vosc', [volume], [options.short_period, options.long_period], align);
   return result[0];
 }
@@ -1088,7 +1088,7 @@ function vosc_start(options: { short_period: number; long_period: number }) {
 }
 
 export
-function vwma(close: number[], volume: number[], options: { period: number }, align = false) {
+function vwma(close: number[], volume: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('vwma', [close, volume], [options.period], align);
   return result[0];
 }
@@ -1099,7 +1099,7 @@ function vwma_start(options: { period: number }) {
 }
 
 export
-function wad(high: number[], low: number[], close: number[], align = false) {
+function wad(high: number[], low: number[], close: number[], align: boolean | number = false) {
   const result = _converter('wad', [high, low, close], [], align);
   return result[0];
 }
@@ -1110,7 +1110,7 @@ function wad_start() {
 }
 
 export
-function wcprice(high: number[], low: number[], close: number[], align = false) {
+function wcprice(high: number[], low: number[], close: number[], align: boolean | number = false) {
   const result = _converter('wcprice', [high, low, close], [], align);
   return result[0];
 }
@@ -1121,7 +1121,7 @@ function wcprice_start() {
 }
 
 export
-function wilders(real: number[], options: { period: number }, align = false) {
+function wilders(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('wilders', [real], [options.period], align);
   return result[0];
 }
@@ -1132,7 +1132,7 @@ function wilders_start(options: { period: number }) {
 }
 
 export
-function willr(high: number[], low: number[], close: number[], options: { period: number }, align = false) {
+function willr(high: number[], low: number[], close: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('willr', [high, low, close], [options.period], align);
   return result[0];
 }
@@ -1143,7 +1143,7 @@ function willr_start(options: { period: number }) {
 }
 
 export
-function wma(real: number[], options: { period: number }, align = false) {
+function wma(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('wma', [real], [options.period], align);
   return result[0];
 }
@@ -1154,7 +1154,7 @@ function wma_start(options: { period: number }) {
 }
 
 export
-function zlema(real: number[], options: { period: number }, align = false) {
+function zlema(real: number[], options: { period: number }, align: boolean | number = false) {
   const result = _converter('zlema', [real], [options.period], align);
   return result[0];
 }
