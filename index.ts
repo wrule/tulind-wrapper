@@ -29,8 +29,8 @@ function ad(high: number[], low: number[], close: number[], volume: number[]) {
 }
 
 export
-function add(real: number[], real: number[]) {
-  const result = _converter('add', [real, real], []);
+function add(real1: number[], real2: number[]) {
+  const result = _converter('add', [real1, real2], []);
   return result[0];
 }
 
@@ -143,14 +143,14 @@ function cosh(real: number[]) {
 }
 
 export
-function crossany(real: number[], real: number[]) {
-  const result = _converter('crossany', [real, real], []);
+function crossany(real1: number[], real2: number[]) {
+  const result = _converter('crossany', [real1, real2], []);
   return result[0];
 }
 
 export
-function crossover(real: number[], real: number[]) {
-  const result = _converter('crossover', [real, real], []);
+function crossover(real1: number[], real2: number[]) {
+  const result = _converter('crossover', [real1, real2], []);
   return result[0];
 }
 
@@ -179,8 +179,8 @@ function di(high: number[], low: number[], close: number[], options: { period: n
 }
 
 export
-function div(real: number[], real: number[]) {
-  const result = _converter('div', [real, real], []);
+function div(real1: number[], real2: number[]) {
+  const result = _converter('div', [real1, real2], []);
   return result[0];
 }
 
@@ -563,8 +563,8 @@ function ultosc(high: number[], low: number[], close: number[], options: { short
 }
 
 export
-function var(real: number[], options: { period: number }) {
-  const result = _converter('var', [real], [options.period]);
+function var_(real: number[], options: { period: number }) {
+  const result = _converter('var_', [real], [options.period]);
   return result[0];
 }
 

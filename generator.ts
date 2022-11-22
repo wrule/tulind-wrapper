@@ -1,14 +1,18 @@
 import tulind from 'tulind';
 import fs from 'fs';
 
-export
-function sma(real: number[], period: number) {
-  return converter('sma', [real], [period])[0];
-}
+const patches: { [key: string]: (indic: indicator) => void } = {
+  'add': (indic) => indic.input_names = ['real1', 'real2'],
+  'crossany': (indic) => indic.input_names = ['real1', 'real2'],
+  'crossover': (indic) => indic.input_names = ['real1', 'real2'],
+  'div': (indic) => indic.input_names = ['real1', 'real2'],
+  'mul': (indic) => indic.input_names = ['real1', 'real2'],
+  'sub': (indic) => indic.input_names = ['real1', 'real2'],
+  'var': (indic) => indic.name = 'var_',
+};
 
-
 export
-function converter(name: string, inputs: number[][], options: number[]) {
+function _converter(name: string, inputs: number[][], options: number[]) {
   let result: number[][] = [];
   tulind.indicators[name].indicator(inputs, options, (error, data) => {
     if (error) throw error;
@@ -59,6 +63,7 @@ function _converter(name: string, inputs: number[][], options: number[]) {
 }
   `.trim() + '\n\n');
   Object.values(tulind.indicators).forEach((indic) => {
+    patches[indic.name] && patches[indic.name](indic);
     fs.appendFileSync('index.ts', typescript_code(indic));
   });
 }
