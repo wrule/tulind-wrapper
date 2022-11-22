@@ -65,7 +65,7 @@ function _align(outputs: number[][], length: number) {
 export
 function _converter(name: string, inputs: number[][], options: number[], align = false) {
   let result: number[][] = [];
-  tulind.indicators[name].indicator(inputs, options, (error, data) => {
+  tulind.indicators[name].indicator(inputs, options, (error: Error, data: number[][]) => {
     if (error) throw error;
     result = data;
   });
@@ -94,7 +94,7 @@ function _align(outputs: number[][], length: number) {
 export
 function _converter(name: string, inputs: number[][], options: number[], align = false) {
   let result: number[][] = [];
-  tulind.indicators[name].indicator(inputs, options, (error, data) => {
+  tulind.indicators[name].indicator(inputs, options, (error: Error, data: number[][]) => {
     if (error) throw error;
     result = data;
   });
