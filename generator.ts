@@ -24,12 +24,12 @@ function ${indic.name_ || indic.name}(${indic.input_names.map((name) => `${norm(
   indic.option_names.length < 1 ?
     '' :
     `, options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`
-}) {
+}, align = false) {
   const result = _converter('${indic.name}', [${indic.input_names.join(', ')}], [${
     indic.option_names.length < 1 ?
       '' :
       indic.option_names.map((name) => `options.${norm(name)}`).join(', ')
-  }]);
+  }], align);
   return ${
     indic.output_names.length < 2 ?
       'result[0]' :
