@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && node generator.js",
     "watch": "tsc --watch",
-    "dev": "node generator.js"
+    "test": "node test.js"
   },
   "repository": "https://github.com/wrule/tulind-wrapper.git",
   "license": "MIT",
