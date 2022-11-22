@@ -12,16 +12,6 @@ const patches: { [key: string]: (indic: indicator) => void } = {
 };
 
 export
-function _converter(name: string, inputs: number[][], options: number[]) {
-  let result: number[][] = [];
-  tulind.indicators[name].indicator(inputs, options, (error, data) => {
-    if (error) throw error;
-    result = data;
-  });
-  return result;
-}
-
-export
 function norm(text: string) {
   return text.replace(/\s/g, '_').replace(/\%/g, '');
 }
@@ -69,3 +59,14 @@ function _converter(name: string, inputs: number[][], options: number[]) {
 }
 
 main();
+
+// 模板内代码，调试用
+export
+function _converter(name: string, inputs: number[][], options: number[]) {
+  let result: number[][] = [];
+  tulind.indicators[name].indicator(inputs, options, (error, data) => {
+    if (error) throw error;
+    result = data;
+  });
+  return result;
+}
