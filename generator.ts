@@ -72,3 +72,12 @@ function _converter(name: string, inputs: number[][], options: number[]) {
   });
   return result;
 }
+
+export
+function _align(outputs: number[][], length: number) {
+  outputs.forEach((output) => {
+    const diff = length - output.length;
+    if (diff > 0) output.unshift(...Array(diff).fill(NaN));
+    if (diff < 0) output.splice(0, -diff);
+  });
+}
