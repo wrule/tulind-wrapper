@@ -24,7 +24,7 @@ function ${indic.name_ || indic.name}(${indic.input_names.map((name) => `${norm(
   indic.option_names.length < 1 ?
     '' :
     `, options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`
-}, align = false) {
+}, align: boolean | number = false) {
   const result = _converter('${indic.name}', [${indic.input_names.join(', ')}], [${
     indic.option_names.length < 1 ?
       '' :
