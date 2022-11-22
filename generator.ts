@@ -38,21 +38,12 @@ function ${indic.name_ || indic.name}(${indic.input_names.map((name) => `${norm(
 }
 
 export
-function ${indic.name_ || indic.name}(${indic.input_names.map((name) => `${norm(name)}: number[]`).join(', ')}${
+function ${indic.name_ || indic.name}_start(${
   indic.option_names.length < 1 ?
     '' :
-    `, options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`
-}, align = false) {
-  const result = _converter('${indic.name}', [${indic.input_names.join(', ')}], [${
-    indic.option_names.length < 1 ?
-      '' :
-      indic.option_names.map((name) => `options.${norm(name)}`).join(', ')
-  }], align);
-  return ${
-    indic.output_names.length < 2 ?
-      'result[0]' :
-      `{ ${indic.output_names.map((name, index) => `${norm(name)}: result[${index}]`).join(', ')} }`
-  };
+    `options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`
+}) {
+  return tulind.indicators.${indic.name}.start([${indic.option_names.map((name) => `options.${norm(name)}`).join(', ')}]);
 }
   `.trim() + '\n\n';
 }
