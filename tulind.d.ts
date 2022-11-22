@@ -11,6 +11,7 @@ interface indicator {
   output_names: string[];
   indicator: (inputs: number[][], options: number[], callback: (error: Error, data: number[][]) => void) => void;
   start: (options: number[]) => number;
+  [key: string]: any;
 }
 
 declare module 'tulind' {

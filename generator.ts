@@ -8,7 +8,7 @@ const patches: { [key: string]: (indic: indicator) => void } = {
   'div': (indic) => indic.input_names = ['real1', 'real2'],
   'mul': (indic) => indic.input_names = ['real1', 'real2'],
   'sub': (indic) => indic.input_names = ['real1', 'real2'],
-  'var': (indic) => indic.name = 'var_',
+  'var': (indic) => indic.name_ = 'var_',
 };
 
 export
@@ -30,7 +30,7 @@ export
 function typescript_code(indic: indicator) {
   return `
 export
-function ${indic.name}(${indic.input_names.map((name) => `${norm(name)}: number[]`).join(', ')}${
+function ${indic.name_ || indic.name}(${indic.input_names.map((name) => `${norm(name)}: number[]`).join(', ')}${
   indic.option_names.length < 1 ?
     '' :
     `, options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`

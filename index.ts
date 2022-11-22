@@ -564,7 +564,7 @@ function ultosc(high: number[], low: number[], close: number[], options: { short
 
 export
 function var_(real: number[], options: { period: number }) {
-  const result = _converter('var_', [real], [options.period]);
+  const result = _converter('var', [real], [options.period]);
   return result[0];
 }
 
