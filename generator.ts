@@ -31,7 +31,7 @@ function ${indic.name}(${indic.input_names.map((name) => `${norm(name)}: number[
     '' :
     `, options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`
 }) {
-  const result = converter('${indic.name}', [${indic.input_names.join(', ')}], [${
+  const result = _converter('${indic.name}', [${indic.input_names.join(', ')}], [${
     indic.option_names.length < 1 ? '' : indic.option_names.map((name) => `options.${norm(name)}`).join(', ')
   }]);
   return { ${indic.output_names.map((name, index) => `${norm(name)}: result[${index}]`).join(', ')} };
@@ -45,7 +45,7 @@ async function main() {
 import tulind from 'tulind';
 
 export
-function converter(name: string, inputs: number[][], options: number[]) {
+function _converter(name: string, inputs: number[][], options: number[]) {
   let result: number[][] = [];
   tulind.indicators[name].indicator(inputs, options, (error, data) => {
     if (error) throw error;
