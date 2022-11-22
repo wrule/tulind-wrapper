@@ -104,3 +104,6 @@ dist
 .tern-port
 
 *.js
+*.js.map
+*.d.ts
+*.d.ts.map
