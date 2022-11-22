@@ -48,7 +48,7 @@ function ${indic.name_ || indic.name}_start(${
   `.trim() + '\n\n';
 }
 
-async function main() {
+function main() {
   fs.writeFileSync('index.ts', '');
   fs.writeFileSync('index.ts', `
 import tulind from 'tulind';
