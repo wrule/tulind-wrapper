@@ -47,7 +47,11 @@ function ${indic.name_ || indic.name}_start(${
     return `options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`;
   })()
 }) {
-  return tulind.indicators.${indic.name}.start([${indic.option_names.map((name) => `options.${norm(name)}`).join(', ')}]);
+  return tulind.indicators.${indic.name}.start([${
+    indic.option_names.length == 1 ?
+      norm(indic.option_names[0]) :
+      indic.option_names.map((name) => `options.${norm(name)}`).join(', ')
+  }]);
 }
   `.trim() + '\n\n';
 }
