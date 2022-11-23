@@ -82,8 +82,8 @@ function adx(high: number[], low: number[], close: number[], period: number, ali
 }
 
 export
-function adx_start(options: { period: number }) {
-  return tulind.indicators.adx.start([options.period]);
+function adx_start(period: number) {
+  return tulind.indicators.adx.start([period]);
 }
 
 export
@@ -93,8 +93,8 @@ function adxr(high: number[], low: number[], close: number[], period: number, al
 }
 
 export
-function adxr_start(options: { period: number }) {
-  return tulind.indicators.adxr.start([options.period]);
+function adxr_start(period: number) {
+  return tulind.indicators.adxr.start([period]);
 }
 
 export
@@ -126,8 +126,8 @@ function aroon(high: number[], low: number[], period: number, align: boolean | n
 }
 
 export
-function aroon_start(options: { period: number }) {
-  return tulind.indicators.aroon.start([options.period]);
+function aroon_start(period: number) {
+  return tulind.indicators.aroon.start([period]);
 }
 
 export
@@ -137,8 +137,8 @@ function aroonosc(high: number[], low: number[], period: number, align: boolean 
 }
 
 export
-function aroonosc_start(options: { period: number }) {
-  return tulind.indicators.aroonosc.start([options.period]);
+function aroonosc_start(period: number) {
+  return tulind.indicators.aroonosc.start([period]);
 }
 
 export
@@ -170,8 +170,8 @@ function atr(high: number[], low: number[], close: number[], period: number, ali
 }
 
 export
-function atr_start(options: { period: number }) {
-  return tulind.indicators.atr.start([options.period]);
+function atr_start(period: number) {
+  return tulind.indicators.atr.start([period]);
 }
 
 export
@@ -214,8 +214,8 @@ function cci(high: number[], low: number[], close: number[], period: number, ali
 }
 
 export
-function cci_start(options: { period: number }) {
-  return tulind.indicators.cci.start([options.period]);
+function cci_start(period: number) {
+  return tulind.indicators.cci.start([period]);
 }
 
 export
@@ -236,8 +236,8 @@ function cmo(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function cmo_start(options: { period: number }) {
-  return tulind.indicators.cmo.start([options.period]);
+function cmo_start(period: number) {
+  return tulind.indicators.cmo.start([period]);
 }
 
 export
@@ -291,8 +291,8 @@ function cvi(high: number[], low: number[], period: number, align: boolean | num
 }
 
 export
-function cvi_start(options: { period: number }) {
-  return tulind.indicators.cvi.start([options.period]);
+function cvi_start(period: number) {
+  return tulind.indicators.cvi.start([period]);
 }
 
 export
@@ -302,8 +302,8 @@ function decay(real: number[], period: number, align: boolean | number = false) 
 }
 
 export
-function decay_start(options: { period: number }) {
-  return tulind.indicators.decay.start([options.period]);
+function decay_start(period: number) {
+  return tulind.indicators.decay.start([period]);
 }
 
 export
@@ -313,8 +313,8 @@ function dema(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function dema_start(options: { period: number }) {
-  return tulind.indicators.dema.start([options.period]);
+function dema_start(period: number) {
+  return tulind.indicators.dema.start([period]);
 }
 
 export
@@ -324,8 +324,8 @@ function di(high: number[], low: number[], close: number[], period: number, alig
 }
 
 export
-function di_start(options: { period: number }) {
-  return tulind.indicators.di.start([options.period]);
+function di_start(period: number) {
+  return tulind.indicators.di.start([period]);
 }
 
 export
@@ -346,8 +346,8 @@ function dm(high: number[], low: number[], period: number, align: boolean | numb
 }
 
 export
-function dm_start(options: { period: number }) {
-  return tulind.indicators.dm.start([options.period]);
+function dm_start(period: number) {
+  return tulind.indicators.dm.start([period]);
 }
 
 export
@@ -357,8 +357,8 @@ function dpo(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function dpo_start(options: { period: number }) {
-  return tulind.indicators.dpo.start([options.period]);
+function dpo_start(period: number) {
+  return tulind.indicators.dpo.start([period]);
 }
 
 export
@@ -368,8 +368,8 @@ function dx(high: number[], low: number[], close: number[], period: number, alig
 }
 
 export
-function dx_start(options: { period: number }) {
-  return tulind.indicators.dx.start([options.period]);
+function dx_start(period: number) {
+  return tulind.indicators.dx.start([period]);
 }
 
 export
@@ -379,8 +379,8 @@ function edecay(real: number[], period: number, align: boolean | number = false)
 }
 
 export
-function edecay_start(options: { period: number }) {
-  return tulind.indicators.edecay.start([options.period]);
+function edecay_start(period: number) {
+  return tulind.indicators.edecay.start([period]);
 }
 
 export
@@ -390,8 +390,8 @@ function ema(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function ema_start(options: { period: number }) {
-  return tulind.indicators.ema.start([options.period]);
+function ema_start(period: number) {
+  return tulind.indicators.ema.start([period]);
 }
 
 export
@@ -423,8 +423,8 @@ function fisher(high: number[], low: number[], period: number, align: boolean | 
 }
 
 export
-function fisher_start(options: { period: number }) {
-  return tulind.indicators.fisher.start([options.period]);
+function fisher_start(period: number) {
+  return tulind.indicators.fisher.start([period]);
 }
 
 export
@@ -445,8 +445,8 @@ function fosc(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function fosc_start(options: { period: number }) {
-  return tulind.indicators.fosc.start([options.period]);
+function fosc_start(period: number) {
+  return tulind.indicators.fosc.start([period]);
 }
 
 export
@@ -456,8 +456,8 @@ function hma(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function hma_start(options: { period: number }) {
-  return tulind.indicators.hma.start([options.period]);
+function hma_start(period: number) {
+  return tulind.indicators.hma.start([period]);
 }
 
 export
@@ -467,8 +467,8 @@ function kama(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function kama_start(options: { period: number }) {
-  return tulind.indicators.kama.start([options.period]);
+function kama_start(period: number) {
+  return tulind.indicators.kama.start([period]);
 }
 
 export
@@ -489,8 +489,8 @@ function lag(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function lag_start(options: { period: number }) {
-  return tulind.indicators.lag.start([options.period]);
+function lag_start(period: number) {
+  return tulind.indicators.lag.start([period]);
 }
 
 export
@@ -500,8 +500,8 @@ function linreg(real: number[], period: number, align: boolean | number = false)
 }
 
 export
-function linreg_start(options: { period: number }) {
-  return tulind.indicators.linreg.start([options.period]);
+function linreg_start(period: number) {
+  return tulind.indicators.linreg.start([period]);
 }
 
 export
@@ -511,8 +511,8 @@ function linregintercept(real: number[], period: number, align: boolean | number
 }
 
 export
-function linregintercept_start(options: { period: number }) {
-  return tulind.indicators.linregintercept.start([options.period]);
+function linregintercept_start(period: number) {
+  return tulind.indicators.linregintercept.start([period]);
 }
 
 export
@@ -522,8 +522,8 @@ function linregslope(real: number[], period: number, align: boolean | number = f
 }
 
 export
-function linregslope_start(options: { period: number }) {
-  return tulind.indicators.linregslope.start([options.period]);
+function linregslope_start(period: number) {
+  return tulind.indicators.linregslope.start([period]);
 }
 
 export
@@ -577,8 +577,8 @@ function mass(high: number[], low: number[], period: number, align: boolean | nu
 }
 
 export
-function mass_start(options: { period: number }) {
-  return tulind.indicators.mass.start([options.period]);
+function mass_start(period: number) {
+  return tulind.indicators.mass.start([period]);
 }
 
 export
@@ -588,8 +588,8 @@ function max(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function max_start(options: { period: number }) {
-  return tulind.indicators.max.start([options.period]);
+function max_start(period: number) {
+  return tulind.indicators.max.start([period]);
 }
 
 export
@@ -599,8 +599,8 @@ function md(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function md_start(options: { period: number }) {
-  return tulind.indicators.md.start([options.period]);
+function md_start(period: number) {
+  return tulind.indicators.md.start([period]);
 }
 
 export
@@ -621,8 +621,8 @@ function mfi(high: number[], low: number[], close: number[], volume: number[], p
 }
 
 export
-function mfi_start(options: { period: number }) {
-  return tulind.indicators.mfi.start([options.period]);
+function mfi_start(period: number) {
+  return tulind.indicators.mfi.start([period]);
 }
 
 export
@@ -632,8 +632,8 @@ function min(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function min_start(options: { period: number }) {
-  return tulind.indicators.min.start([options.period]);
+function min_start(period: number) {
+  return tulind.indicators.min.start([period]);
 }
 
 export
@@ -643,8 +643,8 @@ function mom(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function mom_start(options: { period: number }) {
-  return tulind.indicators.mom.start([options.period]);
+function mom_start(period: number) {
+  return tulind.indicators.mom.start([period]);
 }
 
 export
@@ -654,8 +654,8 @@ function msw(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function msw_start(options: { period: number }) {
-  return tulind.indicators.msw.start([options.period]);
+function msw_start(period: number) {
+  return tulind.indicators.msw.start([period]);
 }
 
 export
@@ -676,8 +676,8 @@ function natr(high: number[], low: number[], close: number[], period: number, al
 }
 
 export
-function natr_start(options: { period: number }) {
-  return tulind.indicators.natr.start([options.period]);
+function natr_start(period: number) {
+  return tulind.indicators.natr.start([period]);
 }
 
 export
@@ -742,8 +742,8 @@ function qstick(open: number[], close: number[], period: number, align: boolean 
 }
 
 export
-function qstick_start(options: { period: number }) {
-  return tulind.indicators.qstick.start([options.period]);
+function qstick_start(period: number) {
+  return tulind.indicators.qstick.start([period]);
 }
 
 export
@@ -753,8 +753,8 @@ function roc(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function roc_start(options: { period: number }) {
-  return tulind.indicators.roc.start([options.period]);
+function roc_start(period: number) {
+  return tulind.indicators.roc.start([period]);
 }
 
 export
@@ -764,8 +764,8 @@ function rocr(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function rocr_start(options: { period: number }) {
-  return tulind.indicators.rocr.start([options.period]);
+function rocr_start(period: number) {
+  return tulind.indicators.rocr.start([period]);
 }
 
 export
@@ -786,8 +786,8 @@ function rsi(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function rsi_start(options: { period: number }) {
-  return tulind.indicators.rsi.start([options.period]);
+function rsi_start(period: number) {
+  return tulind.indicators.rsi.start([period]);
 }
 
 export
@@ -819,8 +819,8 @@ function sma(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function sma_start(options: { period: number }) {
-  return tulind.indicators.sma.start([options.period]);
+function sma_start(period: number) {
+  return tulind.indicators.sma.start([period]);
 }
 
 export
@@ -841,8 +841,8 @@ function stddev(real: number[], period: number, align: boolean | number = false)
 }
 
 export
-function stddev_start(options: { period: number }) {
-  return tulind.indicators.stddev.start([options.period]);
+function stddev_start(period: number) {
+  return tulind.indicators.stddev.start([period]);
 }
 
 export
@@ -852,8 +852,8 @@ function stderr(real: number[], period: number, align: boolean | number = false)
 }
 
 export
-function stderr_start(options: { period: number }) {
-  return tulind.indicators.stderr.start([options.period]);
+function stderr_start(period: number) {
+  return tulind.indicators.stderr.start([period]);
 }
 
 export
@@ -874,8 +874,8 @@ function stochrsi(real: number[], period: number, align: boolean | number = fals
 }
 
 export
-function stochrsi_start(options: { period: number }) {
-  return tulind.indicators.stochrsi.start([options.period]);
+function stochrsi_start(period: number) {
+  return tulind.indicators.stochrsi.start([period]);
 }
 
 export
@@ -896,8 +896,8 @@ function sum(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function sum_start(options: { period: number }) {
-  return tulind.indicators.sum.start([options.period]);
+function sum_start(period: number) {
+  return tulind.indicators.sum.start([period]);
 }
 
 export
@@ -929,8 +929,8 @@ function tema(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function tema_start(options: { period: number }) {
-  return tulind.indicators.tema.start([options.period]);
+function tema_start(period: number) {
+  return tulind.indicators.tema.start([period]);
 }
 
 export
@@ -973,8 +973,8 @@ function trima(real: number[], period: number, align: boolean | number = false) 
 }
 
 export
-function trima_start(options: { period: number }) {
-  return tulind.indicators.trima.start([options.period]);
+function trima_start(period: number) {
+  return tulind.indicators.trima.start([period]);
 }
 
 export
@@ -984,8 +984,8 @@ function trix(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function trix_start(options: { period: number }) {
-  return tulind.indicators.trix.start([options.period]);
+function trix_start(period: number) {
+  return tulind.indicators.trix.start([period]);
 }
 
 export
@@ -1006,8 +1006,8 @@ function tsf(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function tsf_start(options: { period: number }) {
-  return tulind.indicators.tsf.start([options.period]);
+function tsf_start(period: number) {
+  return tulind.indicators.tsf.start([period]);
 }
 
 export
@@ -1039,8 +1039,8 @@ function var_(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function var__start(options: { period: number }) {
-  return tulind.indicators.var.start([options.period]);
+function var__start(period: number) {
+  return tulind.indicators.var.start([period]);
 }
 
 export
@@ -1050,8 +1050,8 @@ function vhf(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function vhf_start(options: { period: number }) {
-  return tulind.indicators.vhf.start([options.period]);
+function vhf_start(period: number) {
+  return tulind.indicators.vhf.start([period]);
 }
 
 export
@@ -1072,8 +1072,8 @@ function volatility(real: number[], period: number, align: boolean | number = fa
 }
 
 export
-function volatility_start(options: { period: number }) {
-  return tulind.indicators.volatility.start([options.period]);
+function volatility_start(period: number) {
+  return tulind.indicators.volatility.start([period]);
 }
 
 export
@@ -1094,8 +1094,8 @@ function vwma(close: number[], volume: number[], period: number, align: boolean 
 }
 
 export
-function vwma_start(options: { period: number }) {
-  return tulind.indicators.vwma.start([options.period]);
+function vwma_start(period: number) {
+  return tulind.indicators.vwma.start([period]);
 }
 
 export
@@ -1127,8 +1127,8 @@ function wilders(real: number[], period: number, align: boolean | number = false
 }
 
 export
-function wilders_start(options: { period: number }) {
-  return tulind.indicators.wilders.start([options.period]);
+function wilders_start(period: number) {
+  return tulind.indicators.wilders.start([period]);
 }
 
 export
@@ -1138,8 +1138,8 @@ function willr(high: number[], low: number[], close: number[], period: number, a
 }
 
 export
-function willr_start(options: { period: number }) {
-  return tulind.indicators.willr.start([options.period]);
+function willr_start(period: number) {
+  return tulind.indicators.willr.start([period]);
 }
 
 export
@@ -1149,8 +1149,8 @@ function wma(real: number[], period: number, align: boolean | number = false) {
 }
 
 export
-function wma_start(options: { period: number }) {
-  return tulind.indicators.wma.start([options.period]);
+function wma_start(period: number) {
+  return tulind.indicators.wma.start([period]);
 }
 
 export
@@ -1160,7 +1160,7 @@ function zlema(real: number[], period: number, align: boolean | number = false) 
 }
 
 export
-function zlema_start(options: { period: number }) {
-  return tulind.indicators.zlema.start([options.period]);
+function zlema_start(period: number) {
+  return tulind.indicators.zlema.start([period]);
 }
 
