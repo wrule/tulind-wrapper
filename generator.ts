@@ -41,9 +41,11 @@ function ${indic.name_ || indic.name}(${indic.input_names.map((name) => `${norm(
 
 export
 function ${indic.name_ || indic.name}_start(${
-  indic.option_names.length < 1 ?
-    '' :
-    `options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`
+  (() => {
+    if (indic.option_names.length < 1) return '';
+    if (indic.option_names.length < 2) return `${norm(indic.option_names[0])}: number`;
+    return `options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`;
+  })()
 }) {
   return tulind.indicators.${indic.name}.start([${indic.option_names.map((name) => `options.${norm(name)}`).join(', ')}]);
 }
