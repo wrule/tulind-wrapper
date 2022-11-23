@@ -21,9 +21,11 @@ function typescript_code(indic: Indicator) {
   return `
 export
 function ${indic.name_ || indic.name}(${indic.input_names.map((name) => `${norm(name)}: number[]`).join(', ')}${
-  indic.option_names.length < 1 ?
-    '' :
-    `, options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`
+  (() => {
+    if (indic.option_names.length < 1) return '';
+    if (indic.option_names.length < 2) return `, ${norm(indic.option_names[0])}: number`;
+    return `, options: { ${indic.option_names.map((name) => `${norm(name)}: number`).join('; ')} }`;
+  })()
 }, align: boolean | number = false) {
   const result = _converter('${indic.name}', [${indic.input_names.join(', ')}], [${
     indic.option_names.length < 1 ?
