@@ -83,7 +83,7 @@ function _converter(name: string, inputs: number[][], options: number[], align: 
   `.trim() + '\n\n');
   Object.values(tulind.indicators).forEach((indic) => {
     patches[indic.name] && patches[indic.name](indic);
-    fs.appendFileSync('index.ts', typescript_code(indic));
+    fs.appendFileSync('src/index.ts', typescript_code(indic));
   });
 }
 
