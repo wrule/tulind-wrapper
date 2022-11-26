@@ -1,7 +1,7 @@
 {
   "name": "tulind-wrapper",
   "version": "1.0.1",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "tsc && node dist/generator.js && tsc",
     "watch": "tsc --watch",
