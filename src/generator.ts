@@ -57,8 +57,8 @@ function ${indic.name_ || indic.name}_start(${
 }
 
 function main() {
-  fs.writeFileSync('index.ts', '');
-  fs.writeFileSync('index.ts', `
+  fs.writeFileSync('src/index.ts', '');
+  fs.writeFileSync('src/index.ts', `
 import tulind from 'tulind';
 
 export
