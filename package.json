@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc && node dist/generator.js && tsc",
     "watch": "tsc --watch",
-    "test": "node test.js"
+    "test": "node dist/test.js"
   },
   "repository": "https://github.com/wrule/tulind-wrapper.git",
   "license": "MIT",
