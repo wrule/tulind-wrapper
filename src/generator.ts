@@ -57,8 +57,9 @@ function ${indic.name_ || indic.name}_start(${
 }
 
 function main() {
-  fs.writeFileSync('src/index.ts', '');
-  fs.writeFileSync('src/index.ts', `
+  const file_path = 'src/index.ts';
+  fs.writeFileSync(file_path, '');
+  fs.writeFileSync(file_path, `
 import tulind from 'tulind';
 
 export
@@ -83,7 +84,7 @@ function _converter(name: string, inputs: number[][], options: number[], align: 
   `.trim() + '\n\n');
   Object.values(tulind.indicators).forEach((indic) => {
     patches[indic.name] && patches[indic.name](indic);
-    fs.appendFileSync('src/index.ts', typescript_code(indic));
+    fs.appendFileSync(file_path, typescript_code(indic));
   });
 }
 
