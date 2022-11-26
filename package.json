@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && node generator.js && tsc",
+    "build": "tsc && node dist/generator.js && tsc",
     "watch": "tsc --watch",
     "test": "node test.js"
   },
